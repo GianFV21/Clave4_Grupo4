@@ -41,6 +41,10 @@ namespace Clave4_Grupo4
             this.txtcantidadcomida = new System.Windows.Forms.TextBox();
             this.btnlimpiar = new System.Windows.Forms.Button();
             this.btncerrarsesion = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxlistacafetines = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbxmetododepago = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // listBox1
@@ -131,7 +135,7 @@ namespace Clave4_Grupo4
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(269, 139);
+            this.label3.Location = new System.Drawing.Point(260, 132);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 5;
@@ -146,7 +150,7 @@ namespace Clave4_Grupo4
             // 
             // btningresarpedido
             // 
-            this.btningresarpedido.Location = new System.Drawing.Point(299, 292);
+            this.btningresarpedido.Location = new System.Drawing.Point(283, 345);
             this.btningresarpedido.Name = "btningresarpedido";
             this.btningresarpedido.Size = new System.Drawing.Size(83, 48);
             this.btningresarpedido.TabIndex = 7;
@@ -158,7 +162,7 @@ namespace Clave4_Grupo4
             // 
             this.datetimepedido.CustomFormat = "dd/MM/yyyy HH:mm";
             this.datetimepedido.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetimepedido.Location = new System.Drawing.Point(310, 209);
+            this.datetimepedido.Location = new System.Drawing.Point(310, 287);
             this.datetimepedido.Name = "datetimepedido";
             this.datetimepedido.ShowUpDown = true;
             this.datetimepedido.Size = new System.Drawing.Size(242, 20);
@@ -166,14 +170,14 @@ namespace Clave4_Grupo4
             // 
             // txtcantidadcomida
             // 
-            this.txtcantidadcomida.Location = new System.Drawing.Point(372, 139);
+            this.txtcantidadcomida.Location = new System.Drawing.Point(363, 129);
             this.txtcantidadcomida.Name = "txtcantidadcomida";
             this.txtcantidadcomida.Size = new System.Drawing.Size(100, 20);
             this.txtcantidadcomida.TabIndex = 9;
             // 
             // btnlimpiar
             // 
-            this.btnlimpiar.Location = new System.Drawing.Point(405, 292);
+            this.btnlimpiar.Location = new System.Drawing.Point(401, 345);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(83, 48);
             this.btnlimpiar.TabIndex = 10;
@@ -183,7 +187,7 @@ namespace Clave4_Grupo4
             // 
             // btncerrarsesion
             // 
-            this.btncerrarsesion.Location = new System.Drawing.Point(512, 292);
+            this.btncerrarsesion.Location = new System.Drawing.Point(512, 345);
             this.btncerrarsesion.Name = "btncerrarsesion";
             this.btncerrarsesion.Size = new System.Drawing.Size(83, 48);
             this.btncerrarsesion.TabIndex = 11;
@@ -191,11 +195,58 @@ namespace Clave4_Grupo4
             this.btncerrarsesion.UseVisualStyleBackColor = true;
             this.btncerrarsesion.Click += new System.EventHandler(this.btnsalir_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(269, 192);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Lista de cafetines";
+            // 
+            // cbxlistacafetines
+            // 
+            this.cbxlistacafetines.FormattingEnabled = true;
+            this.cbxlistacafetines.Items.AddRange(new object[] {
+            "Cafetin 1",
+            "Cafetin 2",
+            "Cafetin 3",
+            "Cafetin 4"});
+            this.cbxlistacafetines.Location = new System.Drawing.Point(365, 189);
+            this.cbxlistacafetines.Name = "cbxlistacafetines";
+            this.cbxlistacafetines.Size = new System.Drawing.Size(121, 21);
+            this.cbxlistacafetines.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(267, 244);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Metodo de pago";
+            // 
+            // cbxmetododepago
+            // 
+            this.cbxmetododepago.FormattingEnabled = true;
+            this.cbxmetododepago.Items.AddRange(new object[] {
+            "Efectivo",
+            "Tarjeta ",
+            "Bitcoin"});
+            this.cbxmetododepago.Location = new System.Drawing.Point(365, 241);
+            this.cbxmetododepago.Name = "cbxmetododepago";
+            this.cbxmetododepago.Size = new System.Drawing.Size(121, 21);
+            this.cbxmetododepago.TabIndex = 15;
+            // 
             // Realizar_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbxmetododepago);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbxlistacafetines);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btncerrarsesion);
             this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.txtcantidadcomida);
@@ -229,5 +280,9 @@ namespace Clave4_Grupo4
         private System.Windows.Forms.TextBox txtcantidadcomida;
         private System.Windows.Forms.Button btnlimpiar;
         private System.Windows.Forms.Button btncerrarsesion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxlistacafetines;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbxmetododepago;
     }
 }

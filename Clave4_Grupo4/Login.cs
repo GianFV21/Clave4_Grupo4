@@ -33,33 +33,32 @@ namespace Clave4_Grupo4
 
         private void txtingresar_Click(object sender, EventArgs e)
         {
+            //declaracion de variables a usar dentro del formulario login
             string Correo;
             string Contraseña;
             Correo = txtingresousuario.Text.Trim();
             Contraseña = txtcontraseña.Text.Trim();
-            if(String.IsNullOrEmpty(txtingresousuario.Text))
+            //seleccion del usuario dentro del formulario
+            string tipoUsuario = cbxtipousuario.SelectedItem.ToString();
+            //validacion para que el usuario elija un tipo usuario
+            if (tipoUsuario == "Estudiante" || tipoUsuario == "Docente"|| tipoUsuario=="Personal administrativo")
             {
-                MessageBox.Show("El campo no esta lleno" + Correo);
-                return;
-            }
-            if(String.IsNullOrEmpty(txtcontraseña.Text))
-            {
-                MessageBox.Show("El campo no esta lleno" + Contraseña);
-                return;
-            }
+               //mensaje de inicio de sesion con exito
                 MessageBox.Show("Inicio de sesión exitoso.");
+                //cierra el formulario login
                 this.Hide();
+                //instanciamos el formulario menu
                 MainMenuForm mainMenu = new MainMenuForm();
+                //se dirige al formulario menu
                 mainMenu.Show();
+            }
+           
 
-            
 
 
 
         }
-        
 
-
-
+       
     }
 }

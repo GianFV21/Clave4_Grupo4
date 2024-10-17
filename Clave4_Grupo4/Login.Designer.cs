@@ -37,6 +37,8 @@ namespace Clave4_Grupo4
             this.label2 = new System.Windows.Forms.Label();
             this.txtcontraseña = new System.Windows.Forms.TextBox();
             this.txtingresar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbxtipousuario = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxlogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +46,7 @@ namespace Clave4_Grupo4
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 165);
+            this.label1.Location = new System.Drawing.Point(38, 201);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 0;
@@ -73,7 +75,7 @@ namespace Clave4_Grupo4
             // 
             // txtingresousuario
             // 
-            this.txtingresousuario.Location = new System.Drawing.Point(136, 162);
+            this.txtingresousuario.Location = new System.Drawing.Point(136, 201);
             this.txtingresousuario.Name = "txtingresousuario";
             this.txtingresousuario.Size = new System.Drawing.Size(268, 20);
             this.txtingresousuario.TabIndex = 3;
@@ -81,7 +83,7 @@ namespace Clave4_Grupo4
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 219);
+            this.label2.Location = new System.Drawing.Point(38, 272);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 4;
@@ -89,14 +91,14 @@ namespace Clave4_Grupo4
             // 
             // txtcontraseña
             // 
-            this.txtcontraseña.Location = new System.Drawing.Point(136, 216);
+            this.txtcontraseña.Location = new System.Drawing.Point(136, 272);
             this.txtcontraseña.Name = "txtcontraseña";
             this.txtcontraseña.Size = new System.Drawing.Size(268, 20);
             this.txtcontraseña.TabIndex = 5;
             // 
             // txtingresar
             // 
-            this.txtingresar.Location = new System.Drawing.Point(198, 271);
+            this.txtingresar.Location = new System.Drawing.Point(187, 337);
             this.txtingresar.Name = "txtingresar";
             this.txtingresar.Size = new System.Drawing.Size(97, 34);
             this.txtingresar.TabIndex = 6;
@@ -104,11 +106,34 @@ namespace Clave4_Grupo4
             this.txtingresar.UseVisualStyleBackColor = true;
             this.txtingresar.Click += new System.EventHandler(this.txtingresar_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Tipo Usuario";
+            // 
+            // cbxtipousuario
+            // 
+            this.cbxtipousuario.FormattingEnabled = true;
+            this.cbxtipousuario.Items.AddRange(new object[] {
+            "Estudiante",
+            "Docente",
+            "Personal administrativo"});
+            this.cbxtipousuario.Location = new System.Drawing.Point(162, 159);
+            this.cbxtipousuario.Name = "cbxtipousuario";
+            this.cbxtipousuario.Size = new System.Drawing.Size(193, 21);
+            this.cbxtipousuario.TabIndex = 8;
+            // 
             // formingreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 450);
+            this.Controls.Add(this.cbxtipousuario);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtingresar);
             this.Controls.Add(this.txtcontraseña);
             this.Controls.Add(this.label2);
@@ -134,6 +159,8 @@ namespace Clave4_Grupo4
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtcontraseña;
         private System.Windows.Forms.Button txtingresar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbxtipousuario;
     }
 }
 

@@ -20,7 +20,9 @@ namespace Clave4_Grupo4
         
         private void btnrealizarpedido_Click(object sender, EventArgs e)
         {
+           //instanciamos un nuevo formulario
             Realizar_Pedido realizar_Pedido = new Realizar_Pedido();
+            //muestra formulario realizar pedido
             realizar_Pedido.Show();
         }
     }
