@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Clave4_Grupo4
 {
-    class Usuario
+   public class Usuario
     {
-        public Usuario(string correo, string tipoUsuario)
+        public Usuario(string correo, string contraseña, string tipoUsuario)
         {
             Correo = correo;
+            Contraseña = contraseña;
             TipoUsuario = tipoUsuario;
         }
 
         public string Correo { get; set; }
+        public string Contraseña { get; set; }
         public string TipoUsuario { get; set; }
     }
 }

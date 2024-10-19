@@ -6,34 +6,64 @@ using System.Threading.Tasks;
 
 namespace Clave4_Grupo4
 {
-    class Pedido
+   public class Pedido
     {
-        public Pedido(int iDPedido, Usuario usuario, List<Producto> productos, DateTime fechaPedido, TimeSpan horaReserva, string metodoPago, decimal total)
+        
+    public string Comida { get; set; }
+        public int CantidadComida { get; set; }
+        public string Bebida { get; set; }
+        public int CantidadBebida { get; set; }
+        public string MetodoPago { get; set; }
+        public string Cafetin { get; set; }
+        public DateTime FechaHora { get; set; }
+        public decimal Total { get; private set; }
+        public Usuario Usuario { get; set; } // Asegúrate de tener esta propiedad
+        private readonly Dictionary<string, decimal> comidas;
+        private readonly Dictionary<string, decimal> bebidas;
+
+        public Pedido(string comida, int cantidadComida, string bebida, int cantidadBebida,
+                  string metodoPago, string cafetin, DateTime fechaHora, Usuario usuario,
+                  Dictionary<string, decimal> comidasPrecios, Dictionary<string, decimal> bebidasPrecios)
         {
-            IDPedido = iDPedido;
-            Usuario = usuario;
-            Productos = productos;
-            FechaPedido = fechaPedido;
-            HoraReserva = horaReserva;
+            Comida = comida;
+            CantidadComida = cantidadComida;
+            Bebida = bebida;
+            CantidadBebida = cantidadBebida;
             MetodoPago = metodoPago;
-            Total = total;
+            Cafetin = cafetin;
+            FechaHora = fechaHora;
+            Usuario = usuario; // Almacena el usuario
+            comidas = comidasPrecios;
+            bebidas = bebidasPrecios;
+            CalcularTotal();
+
         }
-        public decimal CalcularTotal()
+        private void CalcularTotal()
         {
-            return Productos.Sum(p => p.Precio);
-        }
-        public Pedido()
-        {
-            Productos = new List<Producto>();
+            Total = 0;
+
+            // Calcular total de la comida
+            if (comidas.ContainsKey(Comida))
+            {
+                Total += comidas[Comida] * CantidadComida;
+            }
+
+            // Calcular total de la bebida
+            if (bebidas.ContainsKey(Bebida))
+            {
+                Total += bebidas[Bebida] * CantidadBebida;
+            }
         }
 
-        public int IDPedido { get; set; }
-        public Usuario Usuario { get; set; }
-        public List<Producto>Productos { get; set; }
-        public DateTime FechaPedido { get; set; }
-        public TimeSpan HoraReserva { get; set; }
-        public string MetodoPago { get; set; }
-        public decimal Total { get; set; } = 0.0m;
+        // Método para ver el resumen del pedido
+        public override string ToString()
+        {
+            string usuarioNombre = Usuario != null ? Usuario.Correo : "Usuario no especificado";
+            return $"Pedido: {Comida} x {CantidadComida}, {Bebida} x {CantidadBebida}\n" +
+                   $"Total: {Total:C}, Método de Pago: {MetodoPago}, Cafetín: {Cafetin}\n" +
+                   $"Hora del pedido: {FechaHora}, Usuario: {usuarioNombre}";
+        }
+
     }
 
     

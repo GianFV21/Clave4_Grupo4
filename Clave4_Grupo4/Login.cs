@@ -33,26 +33,34 @@ namespace Clave4_Grupo4
 
         private void txtingresar_Click(object sender, EventArgs e)
         {
-            //declaracion de variables a usar dentro del formulario login
-            string Correo;
-            string Contraseña;
-            Correo = txtingresousuario.Text.Trim();
-            Contraseña = txtcontraseña.Text.Trim();
-            //seleccion del usuario dentro del formulario
-            string tipoUsuario = cbxtipousuario.SelectedItem.ToString();
-            //validacion para que el usuario elija un tipo usuario
-            if (tipoUsuario == "Estudiante" || tipoUsuario == "Docente"|| tipoUsuario=="Personal administrativo")
+           //Creamos instancia Usuario
+            Usuario usuario = new Usuario(
+                txtingresousuario.Text.Trim(),//usuario
+                txtcontraseña.Text.Trim(),//contraseña
+                cbxtipousuario.SelectedItem.ToString()//tipo de usuario
+                );
+            //Validacion del tipo de usuario
+            if (usuario.TipoUsuario == "Estudiante" || usuario.TipoUsuario == "Docente" || usuario.TipoUsuario == "Personal administrativo")
             {
-               //mensaje de inicio de sesion con exito
+                // Mensaje de inicio de sesión exitoso
                 MessageBox.Show("Inicio de sesión exitoso.");
+                MessageBox.Show($"Usuario: {usuario.Correo}, Tipo: {usuario.TipoUsuario}");
+
                 //cierra el formulario login
                 this.Hide();
                 //instanciamos el formulario menu
-                MainMenuForm mainMenu = new MainMenuForm();
+                MainMenuForm mainMenu = new MainMenuForm(usuario);
                 //se dirige al formulario menu
                 mainMenu.Show();
+                
             }
-           
+            if (usuario.TipoUsuario == "Personal administrativo")
+            {
+                // Si es personal administrativo, abre el formulario de gestión de usuarios
+                GestionUsuarios gestionUsuariosForm = new GestionUsuarios(usuario); // Asegúrate de tener un constructor que acepte Usuario
+                gestionUsuariosForm.Show();
+            }
+
 
 
 

@@ -12,11 +12,17 @@ using System.Collections;
 namespace Clave4_Grupo4
 {
     public partial class Realizar_Pedido : Form
-    {   
-        //limpiamos y mostramos los datos en los combo box
-        public Realizar_Pedido()
+    {
+        private Usuario usuario;
+       
+        public Realizar_Pedido() // Constructor sin parámetros 
         {
             InitializeComponent();
+        }
+        public Realizar_Pedido(Usuario usuario)
+        {
+            InitializeComponent();
+            this.usuario = usuario;
             cbxlistadocomida.Items.Clear();
             cbxlistadocomida.Items.AddRange(comidas.Keys.ToArray());
             cbxlistadobebida.Items.Clear();
@@ -52,6 +58,7 @@ namespace Clave4_Grupo4
         {
            //declaramos variable total
             decimal Total = 0;
+            
             //el usuario selecciona que quiere del listado
             //listado comida
             string comidaSeleccionada = cbxlistadocomida.SelectedItem?.ToString();
@@ -99,11 +106,21 @@ namespace Clave4_Grupo4
                 decimal precioBebida = bebidas[bebidaSeleccionada];
                 Total += precioBebida * cantidadBebida;
             }
+            //Creamos un objeto pedido
+            Pedido nuevoPedido = new Pedido(
+         comidaSeleccionada,
+         cantidadComida,
+         bebidaSeleccionada,
+         cantidadBebida,
+         metodoPagoSeleccionado,
+         cafetinSeleccionado,
+         fechaHoraPedido,
+         this.usuario,
+         comidas, // Agregado
+         bebidas  // Agregado
+     );
             //mostramos un mensaje que muestra comida, bebida, total, metodo pago, cafetin y hora del pedido
-            MessageBox.Show($"Total a pagar por {cantidadComida} comida(s) y {cantidadBebida} bebida(s): ${Total:F2}\n" +
-                     $"Método de pago: {metodoPagoSeleccionado}\n" +
-                     $"Cafetín seleccionado: {cafetinSeleccionado}\n" +
-                     $"Su pedido se ha programado para: {fechaHoraPedido:dd/MM/yyyy HH:mm}");
+            MessageBox.Show(nuevoPedido.ToString());
 
 
         }
