@@ -13,9 +13,11 @@ namespace Clave4_Grupo4
 
     public partial class formingreso : Form
     {
+        private List<Pedido> listaPedidos;
         public formingreso()
         {
             InitializeComponent();
+            listaPedidos = new List<Pedido>();
         }
 
         private void pictureboxlogo_Click(object sender, EventArgs e)
@@ -33,12 +35,13 @@ namespace Clave4_Grupo4
 
         private void txtingresar_Click(object sender, EventArgs e)
         {
-           //Creamos instancia Usuario
+            //Creamos instancia Usuario
             Usuario usuario = new Usuario(
                 txtingresousuario.Text.Trim(),//usuario
                 txtcontraseña.Text.Trim(),//contraseña
                 cbxtipousuario.SelectedItem.ToString()//tipo de usuario
                 );
+            List<Pedido> listaPedidos = new List<Pedido>();
             //Validacion del tipo de usuario
             if (usuario.TipoUsuario == "Estudiante" || usuario.TipoUsuario == "Docente" || usuario.TipoUsuario == "Personal administrativo")
             {
@@ -48,18 +51,14 @@ namespace Clave4_Grupo4
 
                 //cierra el formulario login
                 this.Hide();
-                //instanciamos el formulario menu
-                MainMenuForm mainMenu = new MainMenuForm(usuario);
-                //se dirige al formulario menu
-                mainMenu.Show();
-                
+                //instanciamos un nuevo formulario
+                Realizar_Pedido realizar_Pedido = new Realizar_Pedido(listaPedidos, usuario);
+                realizar_Pedido.Show();
+
+
+
             }
-            if (usuario.TipoUsuario == "Personal administrativo")
-            {
-                // Si es personal administrativo, abre el formulario de gestión de usuarios
-                GestionUsuarios gestionUsuariosForm = new GestionUsuarios(usuario); // Asegúrate de tener un constructor que acepte Usuario
-                gestionUsuariosForm.Show();
-            }
+            //para personal administrativo cuando tengamos el sql
 
 
 
@@ -67,6 +66,9 @@ namespace Clave4_Grupo4
 
         }
 
-       
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

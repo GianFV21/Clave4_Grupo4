@@ -9,7 +9,8 @@ namespace Clave4_Grupo4
    public class Pedido
     {
         
-    public string Comida { get; set; }
+    
+        public string Comida { get; set; }
         public int CantidadComida { get; set; }
         public string Bebida { get; set; }
         public int CantidadBebida { get; set; }
@@ -17,10 +18,11 @@ namespace Clave4_Grupo4
         public string Cafetin { get; set; }
         public DateTime FechaHora { get; set; }
         public decimal Total { get; private set; }
-        public Usuario Usuario { get; set; } // Asegúrate de tener esta propiedad
+        public Usuario Usuario { get; set; }
         private readonly Dictionary<string, decimal> comidas;
         private readonly Dictionary<string, decimal> bebidas;
 
+        //Generamos constructor
         public Pedido(string comida, int cantidadComida, string bebida, int cantidadBebida,
                   string metodoPago, string cafetin, DateTime fechaHora, Usuario usuario,
                   Dictionary<string, decimal> comidasPrecios, Dictionary<string, decimal> bebidasPrecios)
@@ -32,12 +34,13 @@ namespace Clave4_Grupo4
             MetodoPago = metodoPago;
             Cafetin = cafetin;
             FechaHora = fechaHora;
-            Usuario = usuario; // Almacena el usuario
+            Usuario = usuario; 
             comidas = comidasPrecios;
             bebidas = bebidasPrecios;
             CalcularTotal();
 
         }
+       //Metodo para calcular el total de comidas y bebidas
         private void CalcularTotal()
         {
             Total = 0;

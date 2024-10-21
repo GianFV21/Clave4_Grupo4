@@ -14,15 +14,17 @@ namespace Clave4_Grupo4
     public partial class Realizar_Pedido : Form
     {
         private Usuario usuario;
-       
+        private List<Pedido> listaPedidos;
+
         public Realizar_Pedido() // Constructor sin parámetros 
         {
             InitializeComponent();
         }
-        public Realizar_Pedido(Usuario usuario)
+        public Realizar_Pedido(List<Pedido> listaPedidos,Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
+            this.listaPedidos = listaPedidos;
             cbxlistadocomida.Items.Clear();
             cbxlistadocomida.Items.AddRange(comidas.Keys.ToArray());
             cbxlistadobebida.Items.Clear();
@@ -116,9 +118,11 @@ namespace Clave4_Grupo4
          cafetinSeleccionado,
          fechaHoraPedido,
          this.usuario,
-         comidas, // Agregado
-         bebidas  // Agregado
+         comidas, 
+         bebidas 
      );
+            //Agregamos lista pedido
+            listaPedidos.Add(nuevoPedido);
             //mostramos un mensaje que muestra comida, bebida, total, metodo pago, cafetin y hora del pedido
             MessageBox.Show(nuevoPedido.ToString());
 
@@ -147,6 +151,7 @@ namespace Clave4_Grupo4
             formingreso formingreso = new formingreso();
             //muestra el formulario ingreso
             formingreso.Show();
+            this.Close();
 
         }
     }

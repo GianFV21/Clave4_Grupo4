@@ -39,6 +39,7 @@ namespace Clave4_Grupo4
             this.txtingresar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxtipousuario = new System.Windows.Forms.ComboBox();
+            this.btnsalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxlogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +99,7 @@ namespace Clave4_Grupo4
             // 
             // txtingresar
             // 
-            this.txtingresar.Location = new System.Drawing.Point(187, 337);
+            this.txtingresar.Location = new System.Drawing.Point(78, 339);
             this.txtingresar.Name = "txtingresar";
             this.txtingresar.Size = new System.Drawing.Size(97, 34);
             this.txtingresar.TabIndex = 6;
@@ -127,11 +128,22 @@ namespace Clave4_Grupo4
             this.cbxtipousuario.Size = new System.Drawing.Size(193, 21);
             this.cbxtipousuario.TabIndex = 8;
             // 
+            // btnsalir
+            // 
+            this.btnsalir.Location = new System.Drawing.Point(228, 339);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(97, 34);
+            this.btnsalir.TabIndex = 9;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
+            // 
             // formingreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 450);
+            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.cbxtipousuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtingresar);
@@ -161,6 +173,7 @@ namespace Clave4_Grupo4
         private System.Windows.Forms.Button txtingresar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxtipousuario;
+        private System.Windows.Forms.Button btnsalir;
     }
 }
 
