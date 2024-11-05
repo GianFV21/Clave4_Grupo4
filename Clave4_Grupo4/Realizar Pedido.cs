@@ -58,6 +58,49 @@ namespace Clave4_Grupo4
 
         private void btningresarpedido_Click(object sender, EventArgs e)
         {
+           //Validacion del listado de comida
+            if(cbxlistadocomida.SelectedItem==null)
+            {
+                MessageBox.Show("por favor, seleccione algo del listado de comida");
+                cbxlistadocomida.Focus();
+                return;
+            }
+            //Validacion del listado de bebidas
+            if(cbxlistadobebida.SelectedItem==null)
+            {
+                MessageBox.Show("por favor, seleccione algo del listado de bebidas");
+                cbxlistadobebida.Focus();
+                return;
+            }
+            //validacion de espacios vacios en cantidad de comida
+            if(string.IsNullOrWhiteSpace(txtcantidadcomida.Text))
+            {
+                MessageBox.Show("Por favor, ingrese una cantidad en comida");
+                txtcantidadcomida.Focus();
+                return;
+            }
+            //Validacion de espacios vacios en cantidad de bebida
+            if(string.IsNullOrWhiteSpace(txtcantidadbebida.Text))
+            {
+                MessageBox.Show("por favor, ingrese una cantidad en bebida");
+                txtcantidadbebida.Focus();
+                return;
+            }
+            //Validacion de listado de cafetines
+            if(cbxlistacafetines.SelectedItem==null)
+            {
+                MessageBox.Show("por favor, seleccione algo del listado de cafetines");
+                cbxlistacafetines.Focus();
+                return;
+            }
+            //Validacion de listado de metodos de pago
+            if(cbxmetododepago.SelectedItem==null)
+            {
+                MessageBox.Show("por favor, seleccione algo del listado de metodos de pago");
+                cbxmetododepago.Focus();
+                return;
+            }
+            
            //declaramos variable total
             decimal Total = 0;
             
@@ -153,6 +196,26 @@ namespace Clave4_Grupo4
             formingreso.Show();
             this.Close();
 
+        }
+
+        private void txtcantidadcomida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números
+    if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Cancela la entrada de cualquier otro carácter
+                MessageBox.Show("Por favor, ingrese solo números en la cantidad de comida.");
+            }
+        }
+
+        private void txtcantidadbebida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números
+    if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Cancela la entrada de cualquier otro carácter
+                MessageBox.Show("Por favor, ingrese solo números en la cantidad de bebidas.");
+            }
         }
     }
 }

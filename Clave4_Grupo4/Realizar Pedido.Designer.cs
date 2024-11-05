@@ -147,6 +147,7 @@ namespace Clave4_Grupo4
             this.txtcantidadbebida.Name = "txtcantidadbebida";
             this.txtcantidadbebida.Size = new System.Drawing.Size(100, 20);
             this.txtcantidadbebida.TabIndex = 6;
+            this.txtcantidadbebida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidadbebida_KeyPress);
             // 
             // btningresarpedido
             // 
@@ -174,6 +175,7 @@ namespace Clave4_Grupo4
             this.txtcantidadcomida.Name = "txtcantidadcomida";
             this.txtcantidadcomida.Size = new System.Drawing.Size(100, 20);
             this.txtcantidadcomida.TabIndex = 9;
+            this.txtcantidadcomida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidadcomida_KeyPress);
             // 
             // btnlimpiar
             // 

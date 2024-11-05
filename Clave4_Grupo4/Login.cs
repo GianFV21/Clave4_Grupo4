@@ -18,6 +18,9 @@ namespace Clave4_Grupo4
         {
             InitializeComponent();
             listaPedidos = new List<Pedido>();
+            //para que no muestre la contraseña
+            txtcontraseña.PasswordChar = '*';
+
         }
 
         private void pictureboxlogo_Click(object sender, EventArgs e)
@@ -32,9 +35,42 @@ namespace Clave4_Grupo4
                 MessageBox.Show("Error al cargar" + ex.Message);
             }
         }
+       
+        
 
         private void txtingresar_Click(object sender, EventArgs e)
         {
+            //validamos listado de tipo de usuarios
+            if (cbxtipousuario.SelectedItem == null)
+            {
+                MessageBox.Show("por favor, seleccione algo del listado de tipo usuario");
+                cbxtipousuario.Focus();
+                return;
+            }
+            // Validamos entradas vacias para usuario
+            if (string.IsNullOrWhiteSpace(txtingresousuario.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un nombre de usuario.");
+                txtingresousuario.Focus();
+                return;
+            }
+            //validamos la entrada de formato usuario
+            string email = txtingresousuario.Text.Trim();
+            if (!System.Text.RegularExpressions.Regex.IsMatch(email, @"^[^@\s]+@gmail\.com$"))
+            {
+                MessageBox.Show("El correo debe ser una dirección válida que termine en @gmail.com.");
+                txtingresousuario.Focus();
+                return;
+            }
+            //Validamos entradas vacias para contraseña
+            if (String.IsNullOrWhiteSpace(txtcontraseña.Text))
+            {
+                MessageBox.Show("Por favor, ingrese la contraseña");
+                 txtcontraseña.Focus();
+                return;
+            }
+            
+            
             //Creamos instancia Usuario
             Usuario usuario = new Usuario(
                 txtingresousuario.Text.Trim(),//usuario
@@ -43,7 +79,7 @@ namespace Clave4_Grupo4
                 );
             List<Pedido> listaPedidos = new List<Pedido>();
             //Validacion del tipo de usuario
-            if (usuario.TipoUsuario == "Estudiante" || usuario.TipoUsuario == "Docente" || usuario.TipoUsuario == "Personal administrativo")
+            if (usuario.TipoUsuario == "Estudiante" || usuario.TipoUsuario == "Docente")
             {
                 // Mensaje de inicio de sesión exitoso
                 MessageBox.Show("Inicio de sesión exitoso.");
