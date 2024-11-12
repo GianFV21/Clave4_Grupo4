@@ -94,7 +94,18 @@ namespace Clave4_Grupo4
 
 
             }
-            //para personal administrativo cuando tengamos el sql
+            //para personal administracion
+            else if(usuario.TipoUsuario=="Personal administrativo")
+            {
+                //Mensaje de inicio de sesion exitoso
+                MessageBox.Show("Inicio de sesion exitoso");
+                MessageBox.Show($"Usuario:{usuario.Correo},Tipo:{usuario.TipoUsuario}");
+                //cierra formulario login
+                this.Hide();
+                //instanciamos un nuevo formulario
+                GestorUsuario gestorUsuario = new GestorUsuario();
+                gestorUsuario.Show();
+            }
 
 
 
