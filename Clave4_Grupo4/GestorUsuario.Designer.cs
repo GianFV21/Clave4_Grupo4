@@ -46,6 +46,7 @@ namespace Clave4_Grupo4
             this.btnconexionbasedatos.TabIndex = 0;
             this.btnconexionbasedatos.Text = "Conexion Base Datos";
             this.btnconexionbasedatos.UseVisualStyleBackColor = true;
+            this.btnconexionbasedatos.Click += new System.EventHandler(this.btnconexionbasedatos_Click);
             // 
             // btnverusuarios
             // 
@@ -55,6 +56,7 @@ namespace Clave4_Grupo4
             this.btnverusuarios.TabIndex = 1;
             this.btnverusuarios.Text = "Ver Usuarios";
             this.btnverusuarios.UseVisualStyleBackColor = true;
+            this.btnverusuarios.Click += new System.EventHandler(this.btnverusuarios_Click);
             // 
             // btnverpedidos
             // 
@@ -64,6 +66,7 @@ namespace Clave4_Grupo4
             this.btnverpedidos.TabIndex = 2;
             this.btnverpedidos.Text = "Ver pedidos";
             this.btnverpedidos.UseVisualStyleBackColor = true;
+            this.btnverpedidos.Click += new System.EventHandler(this.btnverpedidos_Click);
             // 
             // btneliminar
             // 
@@ -73,6 +76,7 @@ namespace Clave4_Grupo4
             this.btneliminar.TabIndex = 3;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // btnsalir
             // 
