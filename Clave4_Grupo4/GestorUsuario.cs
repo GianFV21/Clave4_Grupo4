@@ -66,7 +66,7 @@ namespace Clave4_Grupo4
                 adaptadorMySQL.Fill(tabla);
 
                 // Asigna la tabla al DataGridView para mostrar los resultados
-                dataGridViewPedidos.DataSource = tabla;
+               dtgver.DataSource = tabla;
             }
             catch (MySqlException ex)
             {
@@ -100,7 +100,7 @@ namespace Clave4_Grupo4
                 adaptadorMySQL.Fill(tabla);
 
                 // Asigna la tabla al DataGridView para mostrar los resultados
-                dataGridViewPedidos.DataSource = tabla;
+                dtgver.DataSource = tabla;
             }
             catch (MySqlException ex)
             {
@@ -121,34 +121,7 @@ namespace Clave4_Grupo4
                 conexionBD.Open();
                 consulta.Connection = conexionBD;
 
-                // Consulta para eliminar un pedido específico
-                consulta.CommandText = "DELETE FROM Pedidos WHERE ID = @PedidoID";
-                consulta.Parameters.AddWithValue("@PedidoID", pedidoId);
-
-                try
-                {
-                    int resultado = consulta.ExecuteNonQuery();
-                    if (resultado > 0)
-                    {
-                        MessageBox.Show("Pedido eliminado correctamente.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se encontró el pedido especificado.");
-                    }
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-                finally
-                {
-                    conexionBD.Close();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, ingrese un ID de pedido válido.");
+                // Consulta para eliminar un pedido específ
             }
         }
     }
